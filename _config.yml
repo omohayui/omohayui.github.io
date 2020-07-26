@@ -17,6 +17,7 @@ plainwhite:
   name: Yui Takeuchi
   tagline: Developer
   date_format: "%b %-d, %Y"
+  portfolio_image:  "assets/portfolio.png"
   social_links:
     twitter: omohayui
     github: omohayui
