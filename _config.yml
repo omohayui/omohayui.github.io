@@ -1,0 +1,40 @@
+title: omohayui.github.io
+email: omohayui@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  This site is maintained by omohayui (Yui Takeuchi).
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://omohayui.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: omohayui
+github_username:  omohayui
+
+# Build settings
+theme: plainwhite
+
+plainwhite:
+  name: Yui Takeuchi
+  tagline: Developer
+  date_format: "%b %-d, %Y"
+  social_links:
+    twitter: omohayui
+    github: omohayui
+    #linkedIn: in/samarsault # format: locale/username
+  analytics_id: UA-18159056-5
+  sitemap: true
+  navigation:
+  - title: Blog
+    url: "https://www.omohayui.com/"
+  - title: Privacy Policy
+    url: "/privacy-policy"
+  dark_mode: true
+
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

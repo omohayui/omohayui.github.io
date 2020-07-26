@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "Welcome to omohayui.github.io"
+date:   2020-07-26 20:27:11 +0900
+categories: news
+---
+
+# Links
+
+- [Blog](https://www.omohayui.com/)
+- [Privacy Policy](/privacy-policy/)
