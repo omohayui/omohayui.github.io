@@ -8,6 +8,7 @@ twitter_username: omohayui
 github_username:  omohayui
 
 # Build settings
+remote_theme: samarsault/plainwhite-jekyll
 theme: plainwhite
 
 plainwhite:
