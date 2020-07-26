@@ -10,6 +10,8 @@ github_username:  omohayui
 # Build settings
 remote_theme: samarsault/plainwhite-jekyll
 theme: plainwhite
+plugins:
+  - jekyll-seo-tag
 
 plainwhite:
   name: Yui Takeuchi

@@ -67,6 +67,7 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll (~> 4.1.1)
+  jekyll-seo-tag
   plainwhite
 
 BUNDLED WITH
