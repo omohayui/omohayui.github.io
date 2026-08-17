@@ -32,10 +32,9 @@ plainwhite:
     twitter: omohayui
     github: omohayui
     #linkedIn: in/samarsault # format: locale/username
-  # Set this to a GA4 measurement ID (G-XXXXXXXXXX) to enable analytics.
-  # The previous value, UA-18159056-5, was a Universal Analytics property; UA stopped
-  # collecting data in July 2023, so it was removed rather than left in place.
-  # analytics_id: G-XXXXXXXXXX
+  # GA4 measurement ID. This replaces UA-18159056-5, a Universal Analytics property
+  # that stopped collecting data in July 2023.
+  analytics_id: G-BHZW7WQEHJ
   sitemap: true
   navigation:
   - title: Blog
