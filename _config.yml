@@ -8,10 +8,20 @@ twitter_username: omohayui
 github_username:  omohayui
 
 # Build settings
-remote_theme: samarsault/plainwhite-jekyll
 theme: plainwhite
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemap
+
+# `style: compressed` keeps the output identical in shape to what the legacy Pages
+# build produced. The theme's stylesheets still use the legacy `@import` syntax, which
+# dart-sass reports as deprecated; the theme is upstream code we don't edit, so the
+# warning is silenced rather than fixed.
+sass:
+  style: compressed
+  sourcemap: never
+  silence_deprecations:
+    - import
 
 plainwhite:
   name: Yui Takeuchi
@@ -22,14 +32,15 @@ plainwhite:
     twitter: omohayui
     github: omohayui
     #linkedIn: in/samarsault # format: locale/username
-  analytics_id: UA-18159056-5
+  # GA4 measurement ID. This replaces UA-18159056-5, a Universal Analytics property
+  # that stopped collecting data in July 2023.
+  analytics_id: G-BHZW7WQEHJ
   sitemap: true
   navigation:
   - title: Blog
     url: "https://www.omohayui.com/"
   - title: Privacy Policy
     url: "/privacy-policy"
-  dark_mode: true
 
 exclude:
   - .sass-cache/

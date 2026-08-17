@@ -1,0 +1,65 @@
+name: Deploy Jekyll site to Pages
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同時に 1 デプロイのみ。進行中の本番デプロイは中断しない。
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v6
+
+      # base_path は使わない。このテーマは `{{ site.baseurl }}/{{ ... }}` と
+      # 直結しているため、base_path が "/" になると `//assets/...` という
+      # protocol-relative URL になって画像が壊れる。baseurl は _config.yml の "" を使う。
+      - name: Build with Jekyll
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+
+      - name: Upload Pages artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v5
+
+      # PR では deploy せず、生成物を確認用に上げるだけ。
+      - name: Upload _site for review
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v7
+        with:
+          name: site
+          path: _site
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
