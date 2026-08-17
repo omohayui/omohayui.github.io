@@ -29,12 +29,11 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v6
-
-      # base_path は使わない。このテーマは `{{ site.baseurl }}/{{ ... }}` と
-      # 直結しているため、base_path が "/" になると `//assets/...` という
-      # protocol-relative URL になって画像が壊れる。baseurl は _config.yml の "" を使う。
+      # actions/configure-pages は使わない。あれが提供するのは base_path などの出力と
+      # Pages の有効化だが、Pages は既に有効で、base_path も使えない。このテーマは
+      # `{{ site.baseurl }}/{{ ... }}` と直結しているため、base_path が "/" になると
+      # `//assets/...` という protocol-relative URL になって画像が壊れる。
+      # baseurl は _config.yml の "" をそのまま使う。
       - name: Build with Jekyll
         run: bundle exec jekyll build
         env:
