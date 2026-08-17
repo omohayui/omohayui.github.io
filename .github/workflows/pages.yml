@@ -27,22 +27,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
-          bundler-cache: false
-
-      # TEMPORARY: Gemfile.lock を生成して取得するための step。
-      # 生成した lock を commit したらこの 3 step を削除し、
-      # 上の bundler-cache を true に戻す。
-      - name: (temporary) Generate Gemfile.lock
-        run: |
-          bundle install
-          bundle lock --add-platform x86_64-linux arm64-darwin
-          cat Gemfile.lock
-
-      - name: (temporary) Upload Gemfile.lock
-        uses: actions/upload-artifact@v7
-        with:
-          name: gemfile-lock
-          path: Gemfile.lock
+          bundler-cache: true
 
       - name: Setup Pages
         uses: actions/configure-pages@v6
