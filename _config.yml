@@ -8,10 +8,15 @@ twitter_username: omohayui
 github_username:  omohayui
 
 # Build settings
-remote_theme: samarsault/plainwhite-jekyll
 theme: plainwhite
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemap
+
+# The theme's stylesheets still use the legacy `@import` syntax, which dart-sass
+# reports as deprecated. Silence it since the theme is upstream code we don't edit.
+sass:
+  quiet_deps: true
 
 plainwhite:
   name: Yui Takeuchi
@@ -22,14 +27,16 @@ plainwhite:
     twitter: omohayui
     github: omohayui
     #linkedIn: in/samarsault # format: locale/username
-  analytics_id: UA-18159056-5
+  # Set this to a GA4 measurement ID (G-XXXXXXXXXX) to enable analytics.
+  # The previous value, UA-18159056-5, was a Universal Analytics property; UA stopped
+  # collecting data in July 2023, so it was removed rather than left in place.
+  # analytics_id: G-XXXXXXXXXX
   sitemap: true
   navigation:
   - title: Blog
     url: "https://www.omohayui.com/"
   - title: Privacy Policy
     url: "/privacy-policy"
-  dark_mode: true
 
 exclude:
   - .sass-cache/
